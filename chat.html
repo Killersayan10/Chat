@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+</head>
+<body>
+  <h1 id="title">Chat</h1>
+  
+  <form id="chatForm" method="POST">
+    <input type="text" name="message" placeholder="Type your message" required />
+    <button type="submit">xyz</button>
+  </form>
+
+  <script>
+    // Get the current URL path
+    const pathParts = window.location.pathname.split('/');
+
+    // Get the partner name from the URL (e.g., /chat/john → "john")
+    const partner = pathParts[2] || 'unknown';
+
+    // Update the form action dynamically
+    const form = document.getElementById('chatForm');
+    form.action = `/chat/${partner}`;
+
+    // Optional: update the heading
+    document.getElementById('title').innerText = `Chat with ${partner}`;
+  </script>
+</body>
+</html>
